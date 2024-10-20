@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block title %}Repair request list{% endblock %}
+
+{% block header %}
+<h1>Список оставленных заявок на ремонт техники</h1>
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'profile' %}">Вернуться в профиль</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+<table>
+    <thead>
+    <tr>
+        <th>Название устройства</th>
+        <th>Описание проблемы</th>
+        <th>Предпочитаемая дата и время ремонта</th>
+        <th>Контактные данные</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% for i in repair_request %}
+        <td>{{ i.device_name }}</td>
+        <td>{{ i.description_problem }}</td>
+        <td>{{ i.preferred_date_time_repair }}</td>
+        <td>{{ i.contact_info }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">Нет заявок.</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

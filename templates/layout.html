@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Home page{% endblock %}</title>
+</head>
+<body>
+<header>
+    {% block header %}
+    <h1>Главная страница</h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'register' %}">Регистрация</a>
+            </li>
+            <li>
+                <a href="{% url 'login' %}">Логин</a>
+            </li>
+        </ul>
+    </nav>
+    {% endblock %}
+</header>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+</body>
+</html>

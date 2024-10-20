@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block header %}
+<h1>Регистрация</h1>
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'home_page' %}">Вернуться на главную страницу</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Регистрация</button>
+</form>
+{% endblock %}

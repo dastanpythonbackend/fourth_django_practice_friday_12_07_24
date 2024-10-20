@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}Repair request{% endblock %}
+
+{% block header %}
+<h1>Заявка на ремонт техники</h1>
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'profile' %}">Вернуться в профиль</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить заявку</button>
+</form>
+{% endblock %}
